@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	<context:property-placeholder location="classpath:sport.properties"/>
+	<bean id="trackCoach"
+		class="com.codeRfun.spring.models.TrackCoach" primary="true">
+	</bean>
+
+	<bean id="baseballCoach"
+		class="com.codeRfun.spring.models.BaseballCoach">
+		<constructor-arg
+			type="com.codeRfun.spring.interfaces.FortuneService"
+			ref="happyFortuneService">
+		</constructor-arg>
+	</bean>
+
+	<bean id="happyFortuneService"
+		class="com.codeRfun.spring.models.HappyFortuneService">
+	</bean>
+	<bean id="cricketCoach"
+		class="com.codeRfun.spring.models.CricketCoach"
+		init-method="init"
+		destroy-method="destroy"
+		>
+		
+		<property name="fortuneService" ref="happyFortuneService">
+		</property>
+		<property name="email" value="${cricket-coach.email}"></property>
+		<property name="team" value="${cricket-coach.team}"></property>
+		
+	</bean>
+</beans>
