@@ -15,6 +15,9 @@ public class MyApp {
 		System.out.println("Same Reference = " + sameReference);
 		System.out.println("C1 " + coach);
 		System.out.println("C2 " + coach2);
+		System.out.println();
+		System.out.println("C1 name " + coach.getName());
+		System.out.println("C1 email " + coach.getEmail());
 	}
 
 }

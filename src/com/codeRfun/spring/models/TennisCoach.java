@@ -29,4 +29,16 @@ public class TennisCoach implements Coach {
 	public void destroy() {
 		System.out.println("cleaning up");
 	}
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getEmail() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
