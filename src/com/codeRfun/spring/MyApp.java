@@ -8,8 +8,8 @@ public class MyApp {
 
 	public static void main(String[] args) {
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SportConfig.class);
-		Coach coach = context.getBean("tennisCoach", Coach.class);
-		Coach coach2 = context.getBean("tennisCoach", Coach.class);
+		Coach coach = context.getBean("swimCoach", Coach.class);
+		Coach coach2 = context.getBean("swimCoach", Coach.class);
 		
 		boolean sameReference = coach == coach2;
 		System.out.println("Same Reference = " + sameReference);

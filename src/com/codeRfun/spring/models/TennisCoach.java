@@ -7,11 +7,12 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.codeRfun.spring.interfaces.Coach;
+import com.codeRfun.spring.interfaces.FortuneService;
 
-@Scope("prototype")
-@Component("tennisCoach")
 public class TennisCoach implements Coach {
 
+	FortuneService fortuneService;
+	
 	@Override
 	public String getDailyWorkout() {
 		return "swing 20 times";
