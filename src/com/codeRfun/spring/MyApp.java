@@ -1,13 +1,13 @@
 package com.codeRfun.spring;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.codeRfun.spring.interfaces.Coach;
 
 public class MyApp {
 
 	public static void main(String[] args) {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SportConfig.class);
 		Coach coach = context.getBean("tennisCoach", Coach.class);
 		Coach coach2 = context.getBean("tennisCoach", Coach.class);
 		
