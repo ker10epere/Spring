@@ -8,6 +8,6 @@
 </head>
 <body>
 	<h1>Hi there!</h1>
-	<a href="showForm">Show Form</a>
+	<a href="${ pageContext.request.contextPath }/student/showForm">Show Form</a>
 </body>
 </html>
