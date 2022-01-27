@@ -8,13 +8,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form:form action="${ pageContext.request.contextPath }/student/processForm" modelAttribute="student">
-		First Name: <form:input path="firstName"/> 
+	<form:form
+		action="${ pageContext.request.contextPath }/student/processForm"
+		modelAttribute="student">
+		First Name: <form:input path="firstName" />
 		<br>
 		<br>
-		Last Name: <form:input path="lastName"/>
+		Last Name: <form:input path="lastName" />
 		<br>
-		<input type="submit" value="Submit">
+		Country : <form:select path="country">
+			<form:options items="${country}" />
+		</form:select>
+		<input type="submit" value="Submit" >
 	</form:form>
 </body>
 </html>
