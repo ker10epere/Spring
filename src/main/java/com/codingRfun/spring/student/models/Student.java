@@ -1,9 +1,14 @@
 package com.codingRfun.spring.student.models;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import com.codingRfun.spring.student.models.enums.Country;
 
 public class Student {
 	private String firstName;
+	@NotNull(message = "lastname is required")
+	@Size(min = 3, message = "size must be above 3 characters")
 	private String lastName;
 	private Country country;
 
