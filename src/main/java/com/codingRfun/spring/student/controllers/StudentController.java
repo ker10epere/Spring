@@ -19,16 +19,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.codingRfun.spring.student.models.Student;
 import com.codingRfun.spring.student.models.enums.Country;
 
+@SuppressWarnings("serial")
 @RequestMapping("/student")
 @Controller
 public class StudentController {
-	// when argument doesn't provided, it will target all (command/form attributes and/or request parameters)
+	// when argument doesn't provided, it will target all (command/form attributes
+	// and/or request parameters)
 	@InitBinder("student")
 	public void initBinder(WebDataBinder databinder) {
-		System.out.println("getFieldDefaultPrefix: " + databinder.getFieldDefaultPrefix());
-		System.out.println("getFieldMarkerPrefix: " + databinder.getFieldMarkerPrefix());
-		System.out.println("getObjectName: " + databinder.getObjectName()); // attribute name = student
-		System.out.println("getTarget: " + databinder.getTarget()); // Student [firstName=foo, lastName=foo@gmail.com,
+		System.out.println("\n\n");
+		System.out.println("getObjectName: \n" + databinder.getObjectName()); // attribute name = student
+		System.out.println("getTarget: \n" + databinder.getTarget()); // Student [firstName=foo, lastName=foo@gmail.com,
 																	// country=Philippines]
 		StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
 		databinder.registerCustomEditor(String.class, stringTrimmerEditor);
@@ -44,13 +45,15 @@ public class StudentController {
 				put(Country.Philippines.name(), Country.Philippines.name());
 			}
 		};
-		model.addAttribute("student", new Student("foo", "foo@gmail.com", Country.Philippines));
+		model.addAttribute("student", new Student("foo", "foo@gmail.com", 18, Country.Philippines));
 		model.addAttribute("country", country);
 		return "student-form";
 	}
 
 	@PostMapping("/processForm")
 	public String processForm(@Valid @ModelAttribute("student") Student student, BindingResult bindingResult) {
+		System.out.println("\n\n");
+		System.out.println("Binding Result: \n" + bindingResult);
 		if (bindingResult.hasErrors()) {
 			return "student-form";
 		}

@@ -15,12 +15,18 @@
 		<br>
 		<br>
 		Last Name: <form:input path="lastName" />
-		<form:errors path="lastName"/>
+		<form:errors path="lastName" />
 		<br>
+		<br>
+		Age: <form:input path="age" />
+		<form:errors path="age" />
+		<br>
+		<br>
+		
 		Country : <form:select path="country">
 			<form:options items="${country}" />
 		</form:select>
-		<input type="submit" value="Submit" >
+		<input type="submit" value="Submit">
 	</form:form>
 </body>
 </html>
