@@ -12,6 +12,7 @@
 		action="${ pageContext.request.contextPath }/student/processForm"
 		modelAttribute="student">
 		First Name: <form:input path="firstName" />
+		<form:errors path="firstName" />
 		<br>
 		<br>
 		Last Name: <form:input path="lastName" />
